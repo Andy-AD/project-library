@@ -18,7 +18,7 @@ function addBookToLibrary() {
 }
 
 const book1 = new Book('1984', 'George Orwell', '328');
-const book2 = new Book('1984', 'George Orwell', '328');
+const book2 = new Book('1984', 'George Orwell', '328', true);
 myLibrary.push(book1, book2);
 
 
@@ -49,8 +49,10 @@ function createBookCard(book) {
   isRead.classList.add('isRead');
   let label = document.createElement('label');
   label.setAttribute('for', 'isReady');
+  label.textContent = 'Did you read it?'
   let checkbox = document.createElement('input');
-  checkbox.setAttribute('type', 'checkbox').setAttribute('id', 'isRead');
+  checkbox.setAttribute('type', 'checkbox')
+  checkbox.setAttribute('id', 'isRead');
   if (book.isRead) {
     checkbox.checked =  true;
   }
