@@ -65,6 +65,41 @@ main {
     margin-bottom: 5px2;
 }
 
+.add-book {
+    position: absolute;
+    z-index: 1;
+    height: 60%;
+    width: 400px;
+    border: 1px solid black;
+    border-radius: 10px;
+    left: calc(50% - 100px);
+    top: calc(20%);
+    background-color: white;
+    padding: 10px;
+    font-size: 18px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.add-book>h2 {
+    align-self: center;
+    margin: 10px;
+}
+
+.add-book>input {
+    font-size: 18px;
+    padding-left: 5px;
+    margin: 10px 0;
+}
+
+.add-book>button {
+    align-self: center;
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+}
 
 
 footer {
