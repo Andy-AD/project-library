@@ -1,5 +1,21 @@
 let myLibrary = [];
+
 const booksContainer = document.querySelector('.books-container');
+const modal =  document.querySelector('.modal');
+const newBookButton = document.getElementById('new-book');
+const closeButton = document.querySelector('.close');
+const submitBookButton = document.getElementById('submit');
+
+newBookButton.addEventListener('click', openModal);
+closeButton.addEventListener('click', closeModal);
+
+function openModal() {
+  modal.style.display = 'flex';
+}
+
+function closeModal() {
+  modal.style.display = 'none';
+}
 
 function Book(title, author, pages, read) {
   this.title = title
@@ -48,7 +64,7 @@ function createBookCard(book) {
   let isRead = document.createElement('div');
   isRead.classList.add('isRead');
   let label = document.createElement('label');
-  label.setAttribute('for', 'isReady');
+  label.setAttribute('for', 'isRead');
   label.textContent = 'Did you read it?'
   let checkbox = document.createElement('input');
   checkbox.setAttribute('type', 'checkbox')
@@ -69,3 +85,5 @@ function createBookCard(book) {
 }
 
 showBooks(myLibrary);
+
+
