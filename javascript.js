@@ -1,5 +1,9 @@
 let myLibrary = [];
 
+const book1 = new Book('1984', 'George Orwell', '328');
+const book2 = new Book('1984', 'George Orwell', '328', true);
+myLibrary.push(book1, book2);
+
 const booksContainer = document.querySelector('.books-container');
 const modal =  document.querySelector('.modal');
 const newBookButton = document.getElementById('new-book');
@@ -8,12 +12,14 @@ const submitBookButton = document.getElementById('submit');
 
 newBookButton.addEventListener('click', openModal);
 closeButton.addEventListener('click', closeModal);
+submitBookButton.addEventListener('click', addBookToLibrary);
 
 function openModal() {
   modal.style.display = 'flex';
 }
 
 function closeModal() {
+  clearAddBookValues();
   modal.style.display = 'none';
 }
 
@@ -30,13 +36,23 @@ Book.prototype.info = function () {
 }
 
 function addBookToLibrary() {
+  let title = document.querySelector("#add-title").value;
+  let author = document.querySelector("#add-author").value;
+  let pages = document.querySelector("#add-pages").value;
+  let read = document.querySelector("#read").checked;
 
+  myLibrary.push(new Book(title, author, pages, read));
+  clearAddBookValues();
+  modal.style.display = 'none';
+  showBooks(myLibrary);
 }
 
-const book1 = new Book('1984', 'George Orwell', '328');
-const book2 = new Book('1984', 'George Orwell', '328', true);
-myLibrary.push(book1, book2);
-
+function clearAddBookValues() {
+  document.querySelector("#add-title").value = '';
+  document.querySelector("#add-author").value = '';
+  document.querySelector("#add-pages").value = '';
+  document.querySelector("#read").checked = false;
+}
 
 function showBooks(library) {
   library.forEach(library_book => {
