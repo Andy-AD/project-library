@@ -5,7 +5,7 @@ const book2 = new Book('1984', 'George Orwell', '328', true);
 myLibrary.push(book1, book2);
 
 const booksContainer = document.querySelector('.books-container');
-const modal =  document.querySelector('.modal');
+const modal = document.querySelector('.modal');
 const newBookButton = document.getElementById('new-book');
 const closeButton = document.querySelector('.close');
 const submitBookButton = document.getElementById('submit');
@@ -55,11 +55,17 @@ function clearAddBookValues() {
 }
 
 function showBooks(library) {
-  library.forEach(library_book => {
-    let bookCard = createBookCard(library_book)
-    booksContainer.appendChild(bookCard);
+  let id = 0;
+  library.forEach(library_book => {    
+    if (document.querySelector(`#book-${id}`) === null) {
+      let bookCard = createBookCard(library_book);
+      bookCard.setAttribute('id', `book-${id}`)
+      booksContainer.appendChild(bookCard);
+    }
+    id++;
   })
 }
+
 
 function createBookCard(book) {
   let bookCard = document.createElement('div');
@@ -86,7 +92,7 @@ function createBookCard(book) {
   checkbox.setAttribute('type', 'checkbox')
   checkbox.setAttribute('id', 'isRead');
   if (book.isRead) {
-    checkbox.checked =  true;
+    checkbox.checked = true;
   }
   isRead.appendChild(label);
   isRead.appendChild(checkbox);
@@ -96,7 +102,7 @@ function createBookCard(book) {
   bookCard.appendChild(author);
   bookCard.appendChild(pages);
   bookCard.appendChild(isRead);
-  
+
   return bookCard
 }
 
