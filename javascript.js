@@ -58,8 +58,7 @@ function showBooks(library) {
   let id = 0;
   library.forEach(library_book => {    
     if (document.querySelector(`#book-${id}`) === null) {
-      let bookCard = createBookCard(library_book);
-      bookCard.setAttribute('id', `book-${id}`)
+      let bookCard = createBookCard(library_book,id);      
       booksContainer.appendChild(bookCard);
     }
     id++;
@@ -67,9 +66,10 @@ function showBooks(library) {
 }
 
 
-function createBookCard(book) {
+function createBookCard(book, id) {
   let bookCard = document.createElement('div');
   bookCard.classList.add('book-card');
+  bookCard.setAttribute('id', `book-${id}`)
 
   let title = document.createElement('div');
   title.classList.add('title');
@@ -97,15 +97,30 @@ function createBookCard(book) {
   isRead.appendChild(label);
   isRead.appendChild(checkbox);
 
+  let deleteButton = document.createElement('button');
+  deleteButton.textContent = 'Delete';
+  deleteButton.setAttribute('id', `delete-book-${id}`);
+  deleteButton.classList.add('delete-book');
+  deleteButton.setAttribute('onclick', 'deleteBook(this.parentElement.id)');
+
 
   bookCard.appendChild(title);
   bookCard.appendChild(author);
   bookCard.appendChild(pages);
   bookCard.appendChild(isRead);
+  bookCard.appendChild(deleteButton);
 
   return bookCard
 }
 
+function deleteBook(id) {
+  bookToBeDeleted = document.getElementById(`${id}`);
+  booksContainer.removeChild(bookToBeDeleted);
+  myLibrary.splice(id,1);
+  showBooks(myLibrary);
+}
+
 showBooks(myLibrary);
+
 
 
