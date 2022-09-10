@@ -5,6 +5,7 @@
     --mainColor: #277BC0;
     --secondaryColor: #FFB200;
     --backgroundColor: #FFF4CF;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 body {
@@ -48,7 +49,7 @@ main {
 
 .books-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 200px);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 400px));
     gap: 20px;
     padding: 20px;
 }
