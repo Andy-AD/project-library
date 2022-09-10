@@ -85,6 +85,7 @@ function createBookCard(book, id) {
 
   let isRead = document.createElement('div');
   isRead.classList.add('isRead');
+  isRead.setAttribute('id', `checkbox-container-${id}`)
   let label = document.createElement('label');
   label.setAttribute('for', 'isRead');
   label.textContent = 'Did you read it?'
@@ -95,6 +96,7 @@ function createBookCard(book, id) {
     checkbox.checked = true;
     bookCard.classList.add('read-already');
   }
+  checkbox.setAttribute('onchange', 'updateIsRead(this.parentElement.id)');
   isRead.appendChild(label);
   isRead.appendChild(checkbox);
 
@@ -118,7 +120,16 @@ function deleteBook(id) {
   bookToBeDeleted = document.getElementById(`${id}`);
   booksContainer.removeChild(bookToBeDeleted);
   myLibrary.splice(id,1);
+  booksContainer.removeChild(lastElementChild);
   showBooks(myLibrary);
+}
+
+function updateIsRead(id) {
+  let bookId = id.split('-')[2];
+  let bookToBeUpdated = document.getElementById(`book-${bookId}`);
+  bookToBeUpdated.classList.toggle('read-already');
+  myLibrary[bookId].isRead = !myLibrary[bookId].isRead;
+
 }
 
 showBooks(myLibrary);
