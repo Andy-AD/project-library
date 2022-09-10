@@ -88,7 +88,7 @@ function createBookCard(book, id) {
   isRead.setAttribute('id', `checkbox-container-${id}`)
   let label = document.createElement('label');
   label.setAttribute('for', 'isRead');
-  label.textContent = 'Did you read it?'
+  label.textContent = 'Mark as read:'
   let checkbox = document.createElement('input');
   checkbox.setAttribute('type', 'checkbox')
   checkbox.setAttribute('id', 'isRead');
