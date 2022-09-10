@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    --mainColor: #277BC0;
+    --secondaryColor: #FFB200;
+    --backgroundColor: #FFF4CF;
 }
 
 body {
@@ -12,7 +15,8 @@ body {
 }
 
 header {
-    background-color: aqua;
+    background-color: var(--mainColor);
+    color: white;
     height: 60px;
     display: flex;
     align-items: center;
@@ -24,7 +28,7 @@ main {
 }
 
 .menu {
-    border: 1px solid black;
+    border-bottom: 2px solid var(--mainColor);
     display: flex;
     height: 60px;
     align-items: center;
@@ -52,17 +56,43 @@ main {
 .book-card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: baseline;
     height: 200px;
-    border: 1px solid black;
+    border-left: 4px solid var(--secondaryColor);
     border-radius: 5px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     padding: 10px;
     font-size: 18px;
 }
 
 .book-card>div {
-    margin-bottom: 5px2;
+    margin-bottom: 5px;
+}
+
+.book-card .delete-book {
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+.delete-book:hover, 
+.delete-book:focus {
+    cursor: pointer;
+}
+
+.isRead {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+#isRead {
+    margin-left: 15px;
+    height: 20px;
+    width: 20px;
+    border-radius: 5px;
+    accent-color: green;
 }
 
 .modal {
@@ -116,7 +146,6 @@ main {
 #new-book:hover,
 #new-book:focus {
     cursor: pointer;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .close {
@@ -140,4 +169,23 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+button {
+    background-color: var(--mainColor);
+    color: white;
+    font-weight: 600;
+    border: none;
+    font-size: 16px;
+}
+
+button:hover,
+button:focus {
+    background-color: white;
+    border: 2px solid var(--mainColor);
+    color: var(--mainColor);
+}
+
+.read-already {
+    border-left: 4px solid green;
 }

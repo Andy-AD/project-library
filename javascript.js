@@ -93,6 +93,7 @@ function createBookCard(book, id) {
   checkbox.setAttribute('id', 'isRead');
   if (book.isRead) {
     checkbox.checked = true;
+    bookCard.classList.add('read-already');
   }
   isRead.appendChild(label);
   isRead.appendChild(checkbox);
