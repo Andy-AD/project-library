@@ -1,7 +1,7 @@
 let myLibrary = [];
 
-const book1 = new Book('1984', 'George Orwell', '328');
-const book2 = new Book('1984', 'George Orwell', '328', true);
+const book1 = new Book('1984', 'George Orwell', '328',true);
+const book2 = new Book('Where the Crawdads Sing', 'Delia Owens', '368', false);
 myLibrary.push(book1, book2);
 
 const booksContainer = document.querySelector('.books-container');
