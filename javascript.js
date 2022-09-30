@@ -1,6 +1,19 @@
 let myLibrary = [];
 
-const book1 = new Book('1984', 'George Orwell', '328',true);
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title
+    this.author = author
+    this.pages = pages
+    this.isRead = read || false;
+  }
+  info() {
+    let readString = (this.isRead) ? 'read already' : 'not read yet';
+    return `${this.title} by ${this.author}, ${this.pages} pages, ${readString}.`
+  }
+}
+
+const book1 = new Book('1984', 'George Orwell', '328', true);
 const book2 = new Book('Where the Crawdads Sing', 'Delia Owens', '368', false);
 myLibrary.push(book1, book2);
 
@@ -21,18 +34,6 @@ function openModal() {
 function closeModal() {
   clearAddBookValues();
   modal.style.display = 'none';
-}
-
-function Book(title, author, pages, read) {
-  this.title = title
-  this.author = author
-  this.pages = pages
-  this.isRead = read || false;
-}
-
-Book.prototype.info = function () {
-  let readString = (this.isRead) ? 'read already' : 'not read yet';
-  return `${this.title} by ${this.author}, ${this.pages} pages, ${readString}.`
 }
 
 function addBookToLibrary() {
@@ -56,9 +57,9 @@ function clearAddBookValues() {
 
 function showBooks(library) {
   let id = 0;
-  library.forEach(library_book => {    
+  library.forEach(library_book => {
     if (document.querySelector(`#book-${id}`) === null) {
-      let bookCard = createBookCard(library_book,id);      
+      let bookCard = createBookCard(library_book, id);
       booksContainer.appendChild(bookCard);
     }
     id++;
@@ -119,7 +120,7 @@ function createBookCard(book, id) {
 function deleteBook(id) {
   bookToBeDeleted = document.getElementById(`${id}`);
   booksContainer.removeChild(bookToBeDeleted);
-  myLibrary.splice(id,1);
+  myLibrary.splice(id, 1);
   booksContainer.removeChild(lastElementChild);
   showBooks(myLibrary);
 }
