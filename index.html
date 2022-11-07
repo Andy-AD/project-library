@@ -1,41 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <script src="javascript.js" defer></script>
     <title>Project: Library</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>Project: Library</h1>
+      <h1>Project: Library</h1>
     </header>
     <main>
-        <div class="menu">
-            <h2>My books</h2>
-            <button id="new-book">NEW BOOK</button>
-        </div>
-        <div class="books-container"></div>
-        <div class="modal">
-            <div class="add-book">
-                <span class="close">&times;</span>
-                <h2>Add new book</h2>
-                <label for="add-title">Title:</label>
-                <input type="text" id="add-title">
-                <label for="add-author">Author:</label>
-                <input type="text" id="add-author">
-                <label for="add-pages">Number of pages:</label>
-                <input type="number" id="add-pages" min="1">
-                <div>
-                    <label for="read">Did you read it?</label>
-                    <input type="checkbox" id="read">
-                </div>
-                <button id="submit">Submit</button>
+      <div class="menu">
+        <h2>My books</h2>
+        <button id="new-book">NEW BOOK</button>
+      </div>
+      <div class="books-container"></div>
+      <div class="modal">
+        <div class="add-book">
+          <span class="close">&times;</span>
+          <h2>Add new book</h2>
+          <form id="add-book-form">
+            <label for="add-title">Title (required):</label>
+            <input type="text" id="add-title" required />
+            <label for="add-author">Author (required):</label>
+            <input type="text" id="add-author" required />
+            <label for="add-pages">Number of pages (required):</label>
+            <input type="number" id="add-pages" min="1" required />
+            <div>
+              <label for="read">Did you read it?</label>
+              <input type="checkbox" id="read" />
             </div>
+            <button id="submit">Submit</button>
+          </form>
         </div>
+      </div>
     </main>
-    <footer>Made by Andrii Dovhaliuk</footer>    
-</body>
+    <footer>Made by Andrii Dovhaliuk</footer>
+  </body>
 </html>
